@@ -10,7 +10,8 @@
                  [binaryage/devtools "0.9.7"]
 
 
-                 [cljs-web3 "0.19.0-0-9"]]
+                 [cljs-web3 "0.19.0-0-9"]
+                 [district0x.re-frame/web3-fx "1.0.3"]]
 
 
   :plugins [[lein-cljsbuild "1.1.4"]]
