@@ -3,7 +3,8 @@
             [re-frame.core :as re-frame]
             [ethervine.events :as events]
             [ethervine.views :as views]
-            [ethervine.config :as config]))
+            [ethervine.config :as config]
+            [ethervine.utils :as utils]))
 
 
 (defn dev-setup []
