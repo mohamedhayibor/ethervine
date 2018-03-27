@@ -32,10 +32,16 @@
 
   :aliases {"compile-solidity" ["shell" "./compile-solidity.sh"]}
 
+  :repl-options {:nrepl-middleware [cemerick/piggieback/wrap-cljs-repl]}
+
+  :main ethervine.core
+
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.9.4"]
-                   [day8.re-frame/trace "0.1.13"]]
+                   [day8.re-frame/trace "0.1.13"]
+                   [figwheel-sidecar "0.5.15"]
+                   [org.clojure/tools.nrepl "0.2.11"]]
 
     :plugins      [[lein-figwheel "0.5.13"]]}}
 
