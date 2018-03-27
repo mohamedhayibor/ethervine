@@ -14,7 +14,9 @@
                  [district0x.re-frame/web3-fx "1.0.3"]]
 
 
-  :plugins [[lein-cljsbuild "1.1.4"]]
+  :plugins [[lein-cljsbuild "1.1.4"]
+            [lein-auto "0.1.3"]
+            [lein-shell "0.5.0"]]
 
   :min-lein-version "2.5.3"
 
