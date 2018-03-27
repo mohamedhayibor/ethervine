@@ -34,8 +34,6 @@
 
   :repl-options {:nrepl-middleware [cemerick/piggieback/wrap-cljs-repl]}
 
-  :main ethervine.core
-
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.9.4"]
