@@ -13,7 +13,7 @@ lein figwheel dev
 
 Figwheel will automatically push cljs changes to the browser.
 
-Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
+Wait a bit, then browse to [http://localhost:6777](http://localhost:6777).
 
 ## Production Build
 

@@ -38,7 +38,7 @@
   {:dev
    {:dependencies [[binaryage/devtools "0.9.4"]
                    [day8.re-frame/trace "0.1.13"]
-                   [figwheel-sidecar "0.5.15"]
+                   [figwheel-sidecar "0.5.8"]
                    [org.clojure/tools.nrepl "0.2.11"]]
 
     :plugins      [[lein-figwheel "0.5.13"]]}}
