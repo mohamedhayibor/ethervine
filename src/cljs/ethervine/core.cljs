@@ -5,6 +5,9 @@
             [ethervine.views :as views]
             [ethervine.config :as config]
             [ethervine.utils :as utils]
+            [ethervine.db :as db]
+            [ethervine.subs :as subs]
+
 
             [cljsjs.web3]
             [cljs-web3.bzz :as web3-bzz]
@@ -31,6 +34,9 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export init []
-  (rf/dispatch-sync [::events/initialize-db])
+  (rf/dispatch-sync [:initialize])
   (dev-setup)
   (mount-root))
+
+;; (init)
+;; (rf/dispatch [:initialize])

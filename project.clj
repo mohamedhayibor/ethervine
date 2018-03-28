@@ -11,7 +11,9 @@
 
 
                  [cljs-web3 "0.19.0-0-9"]
-                 [district0x.re-frame/web3-fx "1.0.3"]]
+                 [district0x.re-frame/web3-fx "1.0.3"]
+                 [day8.re-frame/http-fx "0.1.4"]
+                 [cljs-ajax "0.7.3"]]
 
 
   :plugins [[lein-cljsbuild "1.1.4"]

@@ -2,14 +2,17 @@
   (:require [re-frame.core :as rf]
             [ethervine.db :as db]
             [district0x.re-frame.web3-fx]
-            [cljs-web3.personal :as web3-personal]))
+            [cljs-web3.personal :as web3-personal]
+            [ajax.core :as ajax]
+            [day8.re-frame.http-fx]))
 
 (def interceptors [rf/trim-v])
 
-(rf/reg-event-db
- ::initialize-db
+(rf/reg-event-fx
+ :initialize
+
  (fn  [_ _]
-   db/default-db))
+   {:db db/default-db}))
 
 
 (rf/reg-event-db
@@ -23,8 +26,8 @@
     (web3-personal/unlock-account address password)
 
     {:web3-fx.blockchain/fns
-     {:web3 (:web3 db)
-      :fns  [[web3-personal/unlock-account address password
+     {:web3 (:web3 db/default-db)
+      :fns  [[web3-personal/unlock-account address password 9999999
               :blockchain/account-unlocked
               :log-error]]}}
 
@@ -42,6 +45,4 @@
   (fn [{:keys [db]}]
     (println "ULTIMATE FAIL")))
 
-(rf/dispatch [:blockchain/unlock-account "0xd1c1db1ac98ae37005bf0752ed3458e418baa7f9" "try"])
 
-(web3-personal/unlock-account "0xd1c1db1ac98ae37005bf0752ed3458e418baa7f9" "try")
