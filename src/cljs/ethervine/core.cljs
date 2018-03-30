@@ -9,9 +9,12 @@
             [ethervine.subs :as subs]
 
 
+            [ajax.core :as ajax]
+            [day8.re-frame.http-fx]
+
             [cljsjs.web3]
-            [cljs-web3.bzz :as web3-bzz]
             [cljs-web3.core :as web3]
+            [cljs-web3.bzz :as web3-bzz]
             [cljs-web3.db :as web3-db]
             [cljs-web3.eth :as web3-eth]
             [cljs-web3.evm :as web3-evm]
@@ -38,5 +41,6 @@
   (dev-setup)
   (mount-root))
 
-;; (init)
-;; (rf/dispatch [:initialize])
+(comment
+  (init)
+  (rf/dispatch [:initialize]))
