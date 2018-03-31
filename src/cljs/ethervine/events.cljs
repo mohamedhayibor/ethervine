@@ -9,8 +9,11 @@
 
             [cljs-web3.personal :as web3-personal]
             [day8.re-frame.http-fx]
-            [district0x.re-frame.web3-fx]))
+            [district0x.re-frame.web3-fx]
+            [taoensso.timbre :as timbre
+             :refer-macros [info]]))
 
+(def web3-event-scream "Firing event to web3")
 (def web3 (web3/create-web3 "http://localhost:6777"))
 
 (def interceptors [rf/trim-v])
@@ -19,42 +22,43 @@
  :initialize
 
  (fn  [_ _]
+   (info "Initialized")
    {:db init-db/default-db}))
 
 
 (rf/reg-event-db
   :blockchain/unlock-account
   interceptors
-  (fn [{:keys [db]} [address password]]
-    (println "db: " db)
+  (fn [{:keys [db] :as args} [address password]]
+    (info web3-event-scream {:args args})
     ; (println "init-db: " init-db/default-db)
     ; (println "init-db/web3 " (:web3 init-db/default-db))
-    (println "address: " address)
-    (println "password: " password)
-    (println "web3: " web3)
+    (info "address: " address)
+    (info "password: " password)
+    (info "web3: " web3)
 
 
-    {:web3/call {:web3 web3
+    {:web3/call {:web3 (:web3 init-db/default-db)
                  :fns  [{:fn web3-personal/unlock-account
                          :args [address password 99999]
                          :on-success [:blockchain/account-unlocked]
                          :on-error [:log-error]}]}}
 
-    (println "Exited from web3-call")))
+    (info "Exited from web3-call")))
 
 (rf/reg-event-db
   :blockchain/account-unlocked
   interceptors
   (fn [{:keys [db]}]
-    (println "SUCCESS: account unlocked >>>>")
-    (println  "DB: " db)))
+    (info "SUCCESS: account unlocked >>>>")
+    (info  "DB: " db)))
 
 (rf/reg-event-db
   :log-error
   interceptors
   (fn [{:keys [db]}]
-    (println "ULTIMATE FAIL: unlock account unsuccessful")
-    (println "DB: " db)))
+    (info "ULTIMATE FAIL: unlock account unsuccessful")
+    (info "DB: " db)))
 
 (comment
   (rf/dispatch [:initialize])

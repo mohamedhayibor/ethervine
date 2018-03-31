@@ -3,17 +3,22 @@
                  [org.clojure/clojurescript "1.9.908"]
                  [reagent "0.8.0-alpha2"]
                  [re-frame "0.10.5"]
-                 [figwheel-sidecar "0.5.0"]
-                 [binaryage/devtools "0.9.7"]
-                 [day8.re-frame/http-fx "0.1.4"]
-                 [cljs-ajax "0.7.2"]
-                 [binaryage/devtools "0.9.7"]
 
-
+                 ;; requests
                  [cljs-web3 "0.19.0-0-9"]
                  [district0x.re-frame/web3-fx "1.0.3"]
                  [day8.re-frame/http-fx "0.1.4"]
-                 [cljs-ajax "0.7.3"]]
+                 [cljs-ajax "0.7.3"]
+
+                 ;; logging + dev
+                 [com.taoensso/timbre "4.10.0"]
+                 [figwheel-sidecar "0.5.0"]
+                 [binaryage/devtools "0.9.7"]
+                 [binaryage/devtools "0.9.7"]
+
+                 ;; later
+                 [district0x/district-server-smart-contracts "1.0.6"]
+                 [district0x/district-ui-smart-contracts "1.0.4"]]
 
 
   :plugins [[lein-cljsbuild "1.1.4"]

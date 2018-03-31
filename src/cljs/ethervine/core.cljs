@@ -22,21 +22,29 @@
             [cljs-web3.personal :as web3-personal]
             [cljs-web3.settings :as web3-settings]
             [cljs-web3.shh :as web3-shh]
+            [taoensso.timbre :as timbre
+             :refer-macros [info]]
 
             [district0x.re-frame.web3-fx]))
 
 
 (defn dev-setup []
+  (info "Dev setup")
+
   (when config/debug?
     (enable-console-print!)
     (println "dev mode")))
 
 (defn mount-root []
+  (info "Mount root")
+
   (rf/clear-subscription-cache!)
   (reagent/render [views/main-panel]
                   (.getElementById js/document "app")))
 
 (defn ^:export init []
+  (info "Main init")
+
   (rf/dispatch-sync [:initialize])
   (dev-setup)
   (mount-root))
