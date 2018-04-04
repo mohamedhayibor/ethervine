@@ -15,6 +15,7 @@
                  [figwheel-sidecar "0.5.0"]
                  [binaryage/devtools "0.9.7"]
                  [binaryage/devtools "0.9.7"]
+                 [mount "0.1.12"]
 
                  ;; later
                  [district0x/district-server-smart-contracts "1.0.6"]
